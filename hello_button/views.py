@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from rest_framework import status
-from rest_framework.response import Response
+from .models import LabMembers
 
 # Create your views here.
 def index(request):
-    return Response({'message':'test'}, status=status.HTTP_404_NOT_FOUND)
+    object_list = LabMembers.objects.all()
+    context = {'object_list': object_list}
+    return render(request, 'index.html', context)
