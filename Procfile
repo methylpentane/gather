@@ -1,1 +1,1 @@
-web: gunicorn config.wsgi --log-file -
+web: gunicorn esslab_gather.wsgi --log-file -
