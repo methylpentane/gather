@@ -2,6 +2,7 @@
 from django.shortcuts import render
 from .models import LabMembers
 from django.conf import settings
+from django.views.decorators.clickjacking import xframe_options_exempt
 
 import json
 import requests
@@ -90,6 +91,7 @@ def post_msg(user_id, msg, test=True):
 # }}}
 
 # Create your views here.
+@xframe_options_exempt
 def index(request):
     member = request.GET.get('member', default=None)
     if member:
