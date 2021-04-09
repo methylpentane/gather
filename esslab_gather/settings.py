@@ -36,7 +36,7 @@ USERNAME = env('USERNAME')
 PASSWORD = env('PASSWORD')
 CHANNEL_ID = env('CHANNEL_ID')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['virtual-esslab.herokuapp.com']
 
 
 # Application definition
