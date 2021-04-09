@@ -1,7 +1,13 @@
-<h1>リスト</h1>
+<h1>入室ボタン</h1>
+
+{% if member != None %}
+<p>{{ member }}, welcome back!!</p>
+{% elif member == None %}
+<p>who are you?</p>
+{% endif %}
 
 <ul>
     {% for obj in object_list %}
-    <li><a href="http://localhost:8000/hello_button/index">{{ obj.name }}</a></li>
+    <li><a href="http://localhost:8000/hello_button/index?member={{ obj.name }}">{{ obj.name }}</a></li>
     {% endfor %}
 </ul>

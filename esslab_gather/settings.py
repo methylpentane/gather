@@ -11,6 +11,12 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import environ
+
+env = environ.Env()
+HEROKU_ENV = env.bool('DJANGO_HEROKU_ENV', default=False)
+if not HEROKU_ENV:
+    env.read_env('.env')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,10 +26,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-r2sn#ds*d2l*&o=2i-_^z0-)dc)k0snmzwr21r$*xh&xjv7q&h'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool('DEBUG', False)
+
+# akiba: don't upload username and password
+USERNAME = env('USERNAME')
+PASSWORD = env('PASSWORD')
+CHANNEL_ID = env('CHANNEL_ID')
 
 ALLOWED_HOSTS = []
 
