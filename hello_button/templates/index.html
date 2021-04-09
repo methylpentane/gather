@@ -1,4 +1,4 @@
-<h1>入室ボタン</h1>
+<h1>HELLO button<h1>
 
 {% if member != None %}
 <p>{{ member }}, welcome back!!</p>
@@ -8,6 +8,9 @@
 
 <ul>
     {% for obj in object_list %}
+    {% if debug == True %}
     <li><a href="http://localhost:8000/hello_button/index?member={{ obj.name }}">{{ obj.name }}</a></li>
+    {% if debug == False %}
+    <li><a href="https://virtual-esslab.herokuapp.com/hello_button/index?member={{ obj.name }}">{{ obj.name }}</a></li>
     {% endfor %}
 </ul>

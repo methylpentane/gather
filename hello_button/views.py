@@ -97,6 +97,6 @@ def index(request):
         post_msg(user['id'], f'(bot) this is test message. member is {member}', settings.DEBUG)
 
     object_list = LabMembers.objects.all()
-    context = {'object_list': object_list, 'member': member}
+    context = {'debug': settings.DEBUG, 'object_list': object_list, 'member': member}
     return render(request, 'index.html', context)
 
