@@ -66,7 +66,7 @@ def get_channel():
     return channel['id']
 
 
-def post_msg(user_id, msg, test):
+def post_msg(user_id, msg, test=True):
     time = datetime.now().strftime('%s%f')[:-3]
     channel_id = get_channel() if test else settings.CHANNEL_ID
     r = session.post(
@@ -94,7 +94,7 @@ def index(request):
     member = request.GET.get('member', default=None)
     if member:
         login()
-        post_msg(user['id'], f'(bot) this is test message. member is {member}', settings.DEBUG)
+        post_msg(user['id'], f'(bot) this is test message. member is {member}')
 
     object_list = LabMembers.objects.all()
     context = {'object_list': object_list, 'member': member}
