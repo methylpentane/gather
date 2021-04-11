@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="ja">
     <head>
         <meta charset="utf-8"/>
@@ -7,9 +8,6 @@
         {% elif debug == False %}
         <title>hello button<title/>
         {% endif %}
-
-        {% load static %}
-        <script src="{% static 'js/main.js'%}"></script>
     </head>
     <body>
     <font size="5">
@@ -34,5 +32,6 @@
             {% endif %}
         </ul>
     </font>
+    <script src="{% static 'js/main.js'%}"></script>
     </body>
 </html>
