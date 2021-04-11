@@ -98,7 +98,7 @@ def index(request):
         login()
         post_msg(user['id'], f'(bot) **{member}** : "hello virtual esslab!"', settings.DEBUG)
 
-    object_list = LabMembers.objects.all()
+    object_list = LabMembers.objects.all().order_by('name')
     context = {'debug': settings.DEBUG, 'object_list': object_list, 'member': member}
     return render(request, 'index.html', context)
 

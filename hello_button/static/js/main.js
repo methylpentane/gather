@@ -3,7 +3,7 @@ window.onload=function(){
     for(var $i=0; $i< $getListItems.length; $i++){
         $getListItems[$i].children[0].onclick =
             function(){
-                this.innerHTML="Please Wait...";
+                this.outerHTML="Please Wait...";
             };
     }
 }

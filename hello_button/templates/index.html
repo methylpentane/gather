@@ -10,13 +10,14 @@
         {% endif %}
     </head>
     <body>
-    <font size="5">
+    <font size="4">
         <h1>HELLO button</h1>
 
         {% if member != None %}
         <p>Welcome back, {{ member }}!!</p>
-        <p>Press Esc to exit.</p>
+        <p>Message was sent to mattermost.</p>
         {% elif member == None %}
+        <p>These button can send hello message to mattermost.</p>
         <p>Who are you?</p>
         {% endif %}
 
