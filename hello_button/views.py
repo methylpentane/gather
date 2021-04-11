@@ -96,7 +96,7 @@ def index(request):
     member = request.GET.get('member', default=None)
     if member:
         login()
-        post_msg(user['id'], f'(bot) {member} said "hello virtual esslab!"', settings.DEBUG)
+        post_msg(user['id'], f'(bot) **{member}** : "hello virtual esslab!"', settings.DEBUG)
 
     object_list = LabMembers.objects.all()
     context = {'debug': settings.DEBUG, 'object_list': object_list, 'member': member}
