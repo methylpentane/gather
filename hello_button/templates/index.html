@@ -3,24 +3,24 @@
 <html lang="ja">
     <head>
         <meta charset="utf-8"/>
-        <title>hello button</title>
+        <title>{{ quote }} button</title>
     </head>
     <body>
     <font size="4">
-        <h1>HELLO button</h1>
+        <h1>{{ quote }} button</h1>
 
         {% if member != None %}
-        <p>Welcome back, {{ member }}!!</p>
+        <p>{{ quote_sys }}, {{ member }}!!</p>
         <p>Message was sent to mattermost.</p>
         {% elif member == None %}
-        <p>These button can send hello message to mattermost.</p>
+        <p>These button can send hello message to mattermost. {{ quote_inv }} buttons are <a href="{{ URL }}/hello_button/index?quote={{ quote_inv }}">HERE</a></p>
         <p>Who are you?</p>
         {% endif %}
 
         <ul id="member_list">
             {% if member == None %}
                 {% for obj in object_list %}
-                    <li><a href="{{ URL }}/hello_button/index?member={{ obj.name }}">{{ obj.name }}</a></li>
+                <li><a href="{{ URL }}/hello_button/index?member={{ obj.name }}&quote={{ quote }}">{{ obj.name }}</a></li>
                 {% endfor %}
             {% endif %}
         </ul>

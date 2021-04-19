@@ -94,14 +94,21 @@ def post_msg(user_id, msg, test=True):
 @xframe_options_exempt
 def index(request):
     member = request.GET.get('member', default=None)
+    quote = request.GET.get('quote', default='HELLO')
+
+    quote_inv = "HELLO" if quote=="GOODBYE" else "GOODBYE"
+    quote_sys = "See you" if quote=="GOODBYE" else "Welcome back"
+
     if member:
         login()
-        post_msg(user['id'], f'(bot) **{member}** : "HELLO virtual esslab!"', settings.DEBUG)
+        post_msg(user['id'], f'(bot) **{member}** : "{quote} virtual esslab!"', settings.DEBUG)
 
     object_list = LabMembers.objects.all().order_by('name')
     context = {'object_list': object_list,
                'member': member,
-               'title': "HELLO",
+               'quote': quote,
+               'quote_inv': quote_inv,
+               'quote_sys': quote_sys,
                'URL': "https://virtual-esslab.herokuapp.com"}
     if settings.DEBUG is True:
         context.update({'URL': "http://localhost:8000"})
