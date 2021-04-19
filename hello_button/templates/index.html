@@ -13,7 +13,7 @@
         <p>{{ quote_sys }}, {{ member }}!!</p>
         <p>Message was sent to mattermost.</p>
         {% elif member == None %}
-        <p>These button can send hello message to mattermost. {{ quote_inv }} buttons are <a href="{{ URL }}/hello_button/index?quote={{ quote_inv }}">HERE</a></p>
+        <p>These button can send {{ quote }} message to mattermost. {{ quote_inv }} buttons are <a href="{{ URL }}/hello_button/index?quote={{ quote_inv }}">HERE</a></p>
         <p>Who are you?</p>
         {% endif %}
 
