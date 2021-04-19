@@ -96,9 +96,14 @@ def index(request):
     member = request.GET.get('member', default=None)
     if member:
         login()
-        post_msg(user['id'], f'(bot) **{member}** : "hello virtual esslab!"', settings.DEBUG)
+        post_msg(user['id'], f'(bot) **{member}** : "HELLO virtual esslab!"', settings.DEBUG)
 
     object_list = LabMembers.objects.all().order_by('name')
-    context = {'debug': settings.DEBUG, 'object_list': object_list, 'member': member}
+    context = {'object_list': object_list,
+               'member': member,
+               'title': "HELLO",
+               'URL': "https://virtual-esslab.herokuapp.com"}
+    if settings.DEBUG is True:
+        context.update({'URL': "http://localhost:8000"})
     return render(request, 'index.html', context)
 

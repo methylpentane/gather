@@ -3,11 +3,7 @@
 <html lang="ja">
     <head>
         <meta charset="utf-8"/>
-        {% if debug == True %}
-        <title>hello button (local)</title>
-        {% elif debug == False %}
         <title>hello button</title>
-        {% endif %}
     </head>
     <body>
     <font size="4">
@@ -24,11 +20,7 @@
         <ul id="member_list">
             {% if member == None %}
                 {% for obj in object_list %}
-                    {% if debug == True %}
-                    <li><a href="http://localhost:8000/hello_button/index?member={{ obj.name }}">{{ obj.name }}</a></li>
-                    {% elif debug == False %}
-                    <li><a href="https://virtual-esslab.herokuapp.com/hello_button/index?member={{ obj.name }}">{{ obj.name }}</a></li>
-                    {% endif %}
+                    <li><a href="{{ URL }}/hello_button/index?member={{ obj.name }}">{{ obj.name }}</a></li>
                 {% endfor %}
             {% endif %}
         </ul>
